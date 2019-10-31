@@ -15,3 +15,9 @@ object Dependencies {
     const val androidXCore = "androidx.core:core-ktx:$androidXCoreVersion"
     const val jUnit = "junit:junit:$jUnitVersion"
 }
+
+object Config {
+    const val compileSdkVersion = 28
+    const val minSdkVersion = 21
+    const val targetSdkVersion = "28"
+}
