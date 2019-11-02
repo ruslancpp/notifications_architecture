@@ -17,5 +17,6 @@ dependencies {
     implementation(Dependencies.kotlinStdlib)
     implementation(Dependencies.appCompat)
     implementation(Dependencies.androidXCore)
+    implementation(Dependencies.mosbyMvp)
     implementation(Dependencies.jUnit)
 }
