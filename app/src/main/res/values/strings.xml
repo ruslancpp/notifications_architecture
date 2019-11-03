@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Notifications</string>
+    <string name="enable_mvp_notification">Enable MVP notification</string>
+    <string name="enable_notifications">Enable notifications</string>
 </resources>

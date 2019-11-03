@@ -1,6 +1,5 @@
 package com.infiniteset.notifications.notification
 
-import android.content.Context
 import com.infiniteset.notifications.manager.AppNotificationManager
 import com.infiniteset.notifications.presenter.BasePresenter
 import com.infiniteset.notifications.presenter.BaseView
@@ -9,9 +8,8 @@ import com.infiniteset.notifications.presenter.BaseView
  * A base view for MVP notification.
  */
 abstract class MvpNotification<V : BaseView, P : BasePresenter<V>>(
-    context: Context,
     isForeground: Boolean = false
-) : BaseNotification(context, isForeground) {
+) : BaseNotification(isForeground) {
 
     protected lateinit var presenter: P
         private set

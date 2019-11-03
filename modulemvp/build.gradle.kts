@@ -14,9 +14,9 @@ android {
 }
 
 dependencies {
+    implementation(project(Projects.core))
     implementation(Dependencies.kotlinStdlib)
     implementation(Dependencies.appCompat)
     implementation(Dependencies.androidXCoreKtx)
-    api(Dependencies.mosbyMvp)
     implementation(Dependencies.jUnit)
 }
