@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mvp_notification_name">MVP notification name</string>
+    <string name="mvp_notification_description">MVP notification description</string>
+    <string name="odd">Odd</string>
+    <string name="even">Even</string>
+</resources>

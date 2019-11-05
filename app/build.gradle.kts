@@ -26,8 +26,10 @@ android {
 }
 
 dependencies {
+    implementation(project(Projects.modulemvp))
+    implementation(project(Projects.core))
     implementation(Dependencies.kotlinStdlib)
     implementation(Dependencies.appCompat)
-    implementation(Dependencies.androidXCore)
+    implementation(Dependencies.androidXCoreKtx)
     implementation(Dependencies.jUnit)
 }

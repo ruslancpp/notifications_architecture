@@ -1,7 +1,6 @@
 package com.infiniteset.notifications.notification
 
 import android.app.PendingIntent
-import android.content.Context
 import android.os.Build
 import androidx.annotation.CallSuper
 import androidx.annotation.RequiresApi
@@ -16,9 +15,8 @@ typealias NotificationBuilder = NotificationCompat.Builder.() -> Unit
  * is based on registering/unregistering an implicit broadcast receiver when notification is shown/dismissed.
  * To intercept these event simply override [onContentPressed] and [onDeleted] methods.
  */
-abstract class BaseNotification(context: Context, protected val isForeground: Boolean = false) {
+abstract class BaseNotification(protected val isForeground: Boolean = false) {
 
-    protected var appContext: Context = context.applicationContext
     val tag get() = javaClass.name.takeIf { !isForeground }
     protected abstract val channel: String
 
