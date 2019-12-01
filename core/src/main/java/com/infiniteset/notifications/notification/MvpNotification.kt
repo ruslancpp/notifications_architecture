@@ -1,6 +1,6 @@
 package com.infiniteset.notifications.notification
 
-import com.infiniteset.notifications.manager.AppNotificationManager
+import com.infiniteset.notifications.manager.NotificationManager
 import com.infiniteset.notifications.presenter.BasePresenter
 import com.infiniteset.notifications.presenter.BaseView
 
@@ -16,7 +16,7 @@ abstract class MvpNotification<V : BaseView, P : BasePresenter<V>>(
 
     protected abstract fun createPresenter(): P
 
-    override fun onAttach(appNotificationManager: AppNotificationManager) {
+    override fun onAttach(appNotificationManager: NotificationManager) {
         super.onAttach(appNotificationManager)
         presenter = createPresenter()
         @Suppress("UNCHECKED_CAST")
