@@ -5,7 +5,7 @@ import android.os.Build
 import androidx.annotation.CallSuper
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
-import com.infiniteset.notifications.manager.AppNotificationManager
+import com.infiniteset.notifications.manager.NotificationManager
 
 typealias NotificationBuilder = NotificationCompat.Builder.() -> Unit
 
@@ -21,7 +21,7 @@ abstract class BaseNotification(protected val isForeground: Boolean = false) {
     protected abstract val channel: String
 
     @Volatile
-    protected var appNotificationManager: AppNotificationManager? = null
+    protected var notificationManager: NotificationManager? = null
     @Volatile
     var isAttached = false
         private set
@@ -37,8 +37,8 @@ abstract class BaseNotification(protected val isForeground: Boolean = false) {
     }
 
     @CallSuper
-    open fun onAttach(appNotificationManager: AppNotificationManager) {
-        this.appNotificationManager = appNotificationManager
+    open fun onAttach(appNotificationManager: NotificationManager) {
+        this.notificationManager = appNotificationManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             onUpdateNotificationChannel()
         }
@@ -48,7 +48,7 @@ abstract class BaseNotification(protected val isForeground: Boolean = false) {
     @CallSuper
     open fun onDetach() {
         isAttached = false
-        appNotificationManager = null
+        notificationManager = null
     }
 
     /**
@@ -76,7 +76,7 @@ abstract class BaseNotification(protected val isForeground: Boolean = false) {
         notificationId: Int,
         builder: NotificationBuilder
     ) {
-        appNotificationManager?.notify(
+        notificationManager?.notify(
             tag,
             notificationId,
             channel,
@@ -89,6 +89,6 @@ abstract class BaseNotification(protected val isForeground: Boolean = false) {
      * Clear a notification with provided id.
      */
     protected fun cancel(notificationId: Int) {
-        appNotificationManager?.cancel(tag, notificationId)
+        notificationManager?.cancel(tag, notificationId)
     }
 }

@@ -9,7 +9,7 @@ import com.infiniteset.notifications.notification.NotificationBuilder
  * A common interface for managing local notifications. Implementation of this interface should hide
  * a complexity of handling notification pressed/deleted events
  */
-interface AppNotificationManager {
+interface AppNotificationManager : NotificationManager {
 
     /**
      * Intercepts user's interaction with notification and delivers [BaseNotification] sender.
@@ -44,20 +44,4 @@ interface AppNotificationManager {
      * Deregister [notification] from [AppNotificationManager] and detaches notification if was attached before.
      */
     fun deregisterNotification(notification: BaseNotification)
-
-    /**
-     * Notifies notification with provided [tag] and [notificationId].
-     */
-    fun notify(
-        tag: String?,
-        notificationId: Int,
-        channel: String,
-        flag: Int,
-        builder: NotificationBuilder
-    )
-
-    /**
-     * Cancels notification with provided [tag] and [notificationId].
-     */
-    fun cancel(tag: String?, notificationId: Int)
 }
