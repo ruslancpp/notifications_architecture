@@ -1,2 +1,2 @@
-include(":app", ":core", ":modulemvp")
+include(":app", ":core", ":modulemvp", "modulemvvm")
 rootProject.name = "Notifications"

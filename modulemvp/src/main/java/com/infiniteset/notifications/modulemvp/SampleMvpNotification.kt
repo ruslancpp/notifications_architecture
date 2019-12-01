@@ -21,11 +21,11 @@ class SampleMvpNotification(private val context: Context) :
         val name = context.getString(R.string.mvp_notification_name)
         val description = context.getString(R.string.mvp_notification_description)
         val importance = NotificationManager.IMPORTANCE_DEFAULT
-        val mChannel = NotificationChannel(channel, name, importance)
-        mChannel.description = description
+        val channel = NotificationChannel(channel, name, importance)
+        channel.description = description
         val notificationManager =
             context.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.createNotificationChannel(mChannel)
+        notificationManager.createNotificationChannel(channel)
     }
 
     override fun onContentPressed(notificationId: Int) {

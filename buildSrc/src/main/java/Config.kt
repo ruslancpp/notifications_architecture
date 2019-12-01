@@ -1,5 +1,5 @@
 private const val androidGradlePluginVersion = "3.5.2"
-private const val kotlinVersion = "1.3.50"
+private const val kotlinVersion = "1.3.61"
 private const val appCompatVersion = "1.1.0"
 private const val androidXCoreVersion = "1.1.0"
 private const val mosbyMvpVersion = "3.1.1"
@@ -25,6 +25,7 @@ object Config {
 }
 
 object Projects {
+    const val modulemvvm = ":modulemvvm"
     const val modulemvp = ":modulemvp"
     const val core = ":core"
 }
