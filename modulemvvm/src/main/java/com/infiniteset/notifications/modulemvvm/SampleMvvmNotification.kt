@@ -1,12 +1,14 @@
 package com.infiniteset.notifications.modulemvvm
 
 import android.app.NotificationChannel
-import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
+import com.infiniteset.notifications.manager.NotificationManager
 import com.infiniteset.notifications.notification.MvvmNotification
+
+typealias LocalNotificationManager = android.app.NotificationManager
 
 class SampleMvvmNotification(private val context: Context) : MvvmNotification() {
 
@@ -18,16 +20,16 @@ class SampleMvvmNotification(private val context: Context) : MvvmNotification() 
     override fun onUpdateNotificationChannel() {
         val name = context.getString(R.string.mvvm_notification_name)
         val description = context.getString(R.string.mvvm_notification_description)
-        val importance = NotificationManager.IMPORTANCE_DEFAULT
+        val importance = LocalNotificationManager.IMPORTANCE_DEFAULT
         val channel = NotificationChannel(channel, name, importance)
         channel.description = description
         val notificationManager =
-            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            context.getSystemService(Context.NOTIFICATION_SERVICE) as LocalNotificationManager
         notificationManager.createNotificationChannel(channel)
     }
 
-    override fun onAttach(appNotificationManager: com.infiniteset.notifications.manager.NotificationManager) {
-        super.onAttach(appNotificationManager)
+    override fun onAttach(notificationManager: NotificationManager) {
+        super.onAttach(notificationManager)
 
         viewModel.counter.observe(this, Observer { counter ->
             onUpdateNotification(counter)
