@@ -16,8 +16,8 @@ abstract class MvpNotification<V : BaseView, P : BasePresenter<V>>(
 
     protected abstract fun createPresenter(): P
 
-    override fun onAttach(appNotificationManager: NotificationManager) {
-        super.onAttach(appNotificationManager)
+    override fun onAttach(notificationManager: NotificationManager) {
+        super.onAttach(notificationManager)
         presenter = createPresenter()
         @Suppress("UNCHECKED_CAST")
         presenter.attachView(this as V)

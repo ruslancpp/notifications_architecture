@@ -15,8 +15,8 @@ abstract class MvvmNotification(isForeground: Boolean = false) :
 
     override fun getLifecycle() = lifecycleRegistry
 
-    override fun onAttach(appNotificationManager: NotificationManager) {
-        super.onAttach(appNotificationManager)
+    override fun onAttach(notificationManager: NotificationManager) {
+        super.onAttach(notificationManager)
         lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_START)
     }
 

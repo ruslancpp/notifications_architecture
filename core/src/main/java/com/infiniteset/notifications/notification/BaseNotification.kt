@@ -37,8 +37,8 @@ abstract class BaseNotification(protected val isForeground: Boolean = false) {
     }
 
     @CallSuper
-    open fun onAttach(appNotificationManager: NotificationManager) {
-        this.notificationManager = appNotificationManager
+    open fun onAttach(notificationManager: NotificationManager) {
+        this.notificationManager = notificationManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             onUpdateNotificationChannel()
         }
